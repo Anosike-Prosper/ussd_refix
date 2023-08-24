@@ -36,7 +36,9 @@ while(selectOption){
             }else{
                 alert(`Successful sent ${enterAmt}`)
             }
-        }   
+        } 
+        
+        break
         
     }else if(selectOption === '2'){
        
@@ -59,6 +61,8 @@ while(selectOption){
                 alert(`Successful sent ${enterAmt} to ${enterNumber}`)
                }
             }
+
+            break
     
             
         }   
@@ -84,6 +88,8 @@ while(selectOption){
                     alert(`Successful transferred ${entAmt} to ${acctNum}`)
                 }
             }
+
+            break
     
           
             }
@@ -124,12 +130,16 @@ while(selectOption){
             }
                 
             }
+
+            break
         }
     
         
     
     }else{
         alert('Invalid option. Select a valid option from the list provided.')
+
+        break
     
     }
 }

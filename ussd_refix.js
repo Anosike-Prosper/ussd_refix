@@ -1,6 +1,6 @@
 
 
-
+let balance = 10000
 const yourName= prompt(`What is your name?`) || 'Siri'
 alert(`Hello ${yourName}. Welcome to UBA`)
 let selectOption = prompt(`Please Select an option
@@ -21,24 +21,30 @@ while(!selectOption){
 
 
 
-while(selectOption){
+while(true){
 
     if(selectOption === '1'){
+        
         const enterPin = prompt('Please enter your PIN')
         
         if (enterPin.length !== 4){
             alert('Invalid pin. Pin must be four numbers')
-        }else{
+        }else if(enterPin.length === 4){
     
             const enterAmt= prompt('Enter Amount')
             if (Number(enterAmt) <= 0 || !enterAmt){
                 alert('Invalid Amount. Amount must be greater than zero')
             }else{
-                alert(`Successful sent ${enterAmt}`)
+                balance = balance - enterAmt
+                alert(`Successful sent ${enterAmt} and your balance is ${balance}`)
             }
-        } 
+        }else{
+            alert('Transaction Cancelled. Thank you')
+        }
+
+       
         
-        break
+    
         
     }else if(selectOption === '2'){
        
@@ -58,11 +64,13 @@ while(selectOption){
                if (Number(enterAmt) <= 0 || !enterAmt){
                 alert('Invalid amount. Amount must be greater than zero')
                }else{
-                alert(`Successful sent ${enterAmt} to ${enterNumber}`)
+                balance = balance - enterAmt
+                alert(`Successful sent ${enterAmt} and your balance is ${balance}`)
+                
                }
             }
 
-            break
+           
     
             
         }   
@@ -85,11 +93,13 @@ while(selectOption){
                 if(!entAmt || Number(entAmt) <=0){
                     alert('Invalid amount. Amount must be greater than zero')
                 }else{
-                    alert(`Successful transferred ${entAmt} to ${acctNum}`)
+                    balance = balance - entAmt
+                alert(`Successful sent ${entAmt} and your balance is ${balance}`)
+                    
                 }
             }
 
-            break
+            
     
           
             }
@@ -117,21 +127,23 @@ while(selectOption){
     
                 const acctNum= prompt('Please enter your account number')
             
-            if(acctNum.length !== 10 || acctNum.length > 10){
+                if(acctNum.length !== 10 || acctNum.length > 10){
                 alert('Invalid account number. Account Number must be 11 numbers')
-            }else{
+                }else{
     
                 const entAmt= prompt('Please enter an amount')
                 if(!entAmt || Number(entAmt) <=0){
                     alert('Invalid amount. Amount must be greater than zero')
                 }else{
-                    alert(`Successful transferred ${entAmt} to ${acctNum}`)
+                    balance = balance - entAmt
+                alert(`Successful sent ${entAmt} and your balance is ${balance}`)
+                    
                 }
             }
                 
             }
 
-            break
+          
         }
     
         
@@ -139,7 +151,9 @@ while(selectOption){
     }else{
         alert('Invalid option. Select a valid option from the list provided.')
 
-        break
+        
     
     }
+
+    break
 }
